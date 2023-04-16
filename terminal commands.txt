@@ -1,0 +1,19 @@
+---- Setting up Postgres through trial and error -----
+Open psql on Windows:
+& "C:\Program Files\PostgreSQL\15\bin\psql.exe" -U postgres
+(Make sure C:\Program Files\PostgreSQL\15\bin is added to PATH environment variables)
+
+(I'm not actually using db and usr, they're placeholders)
+
+In Postgres:
+CREATE DATABASE db;
+CREATE USER usr WITH PASSWORD 'pwd';
+GRANT ALL PRIVILEGES ON DATABASE db TO usr;
+
+Connect to a db:
+\c db
+
+GRANT ALL PRIVILEGES ON SCHEMA public TO user;
+ALTER USER usr CREATEDB;
+ALTER SCHEMA public OWNER TO usr;
+------------- Worked after this point ------------------
